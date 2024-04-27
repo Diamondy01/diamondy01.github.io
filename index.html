@@ -1,20 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile Page</title>
-    <link rel="stylesheet" href="basis.css">
+  <style>
+#loadingTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the title */
+  color: white; /* Change the color to make the title visible on the video */
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-shadow: 2px 2px 4px #000000;
+  z-index: 1; /* Ensure the title is above the video */
+}
+
+#loadingVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+  object-fit: cover;
+}
+  </style>
 </head>
 <body>
-    <h1 class="headone">Profile Page</h1>
-    <h2 class="subheadingone">My Work</h2>
-    <p class="para1">I have made Minecraft Servers most notably Astralclub, achieving 25-40 People daily</p>
-    <p class="para2">
-        I have also worked my own Server UltraPvPLand
-        as of now the server is 4 Years old, and I have no stopped development as a whole,
-    </p>
+    <div id="loadingScreen">
+        <h1 id="loadingTitle">Loading...</h1>
+        <video autoplay muted loop id="loadingVideo">
+          <source src="footage/Sequencee.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+<script>
+  document.getElementById('loadingVideo').addEventListener('canplaythrough', function() {
+    setTimeout(function() {
+      window.location.href = 'index2.html'; // replace 'main.html' with the path to your main page
+    }, Math.random() * 2000 + 3000); // waits for a random time between 3000ms (3s) and 5000ms (5s)
+  });
+</script>
 </body>
 </html>
-<div>
-    <h2 class="headtwo">About Me</h2>
-    <p>I am a web developer with a passion for creating beautiful and functional websites.</p>
-</div>
