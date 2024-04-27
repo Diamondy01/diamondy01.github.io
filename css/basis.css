@@ -1,0 +1,74 @@
+/* Weird and Bad CSS */
+/* Path: basis.css */
+
+.body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth transition for background-color and color */
+}
+.headone {
+    font-size: 4.0em;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.headtwo {
+    font-size: 2.0em;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 8 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.subheadingone {
+    font-size: 1.2em;
+    color: #333; /* Dark gray color for elegance */
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    margin: 0;
+    padding: 80px 0 0 0; /* Slightly reduced padding for better alignment */
+    text-align: center;
+    text-shadow: 1px 1px 2px #777; /* Subtle text shadow */
+    font-weight: lighter; /* Slightly reduced font weight */
+    letter-spacing: 0.5px; /* Fine-tuned letter spacing */
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth transition for color and text-shadow */
+}
+
+.para1 {
+    font-size: 1.2em;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 120px 0 0 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px #aaa;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    transition: color 0.5s ease, text-shadow 0.5s ease; /* Smooth transition for color and text-shadow */
+  }
+  
+  .para2 {
+    font-size: 1.2em;
+    color: #000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px #aaa;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    text-transform: capitalize;
+  }
