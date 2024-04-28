@@ -2,48 +2,122 @@
 <html>
 <head>
   <style>
-#loadingTitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the title */
-  color: white; /* Change the color to make the title visible on the video */
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-shadow: 2px 2px 4px #000000;
-  z-index: 1; /* Ensure the title is above the video */
+    /* Style the loading screen */
+    #loadingScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-#loadingVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  background-size: cover;
-  object-fit: cover;
+    /* Style the loading title */
+    #loadingTitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-shadow: 2px 2px 4px #000000;
+      z-index: 1;
+    }
+
+    /* Style the loading video */
+    #loadingVideo {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      background-size: cover;
+      object-fit: cover;
+    }
+  
+    #loadingSpinner {
+  border: 16px solid rgba(255, 255, 255, 0.3); /* Light grey with transparency */
+  border-top: 16px solid rgba(255, 255, 255, 0.7); /* White with transparency */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hide-spinner {
+  display: none;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
   </style>
 </head>
 <body>
-    <div id="loadingScreen">
-        <h1 id="loadingTitle">Loading...</h1>
-        <video autoplay muted loop id="loadingVideo">
-          <source src="footage/Sequencee.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
-      </div>
-<script>
-  document.getElementById('loadingVideo').addEventListener('canplaythrough', function() {
+  <div id="loadingSpinner">
+  </div>
+  <div id="loadingScreen">
+    <h1 id="loadingTitle">Loading...</h1>
+    <video autoplay muted loop id="loadingVideo" onerror="handleVideoError()">
+        <source src="footage/Sequencee.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+  </div>
+
+  <script>
+
+document.getElementById('loadingVideo').addEventListener('canplaythrough', function() {
+  setTimeout(function() {
+    // Add the fade-out class to the body
+    document.body.classList.add('fade-out');
+
+    // After the animation ends, redirect to the main page
     setTimeout(function() {
-      window.location.href = 'index2.html'; // replace 'main.html' with the path to your main page
-    }, Math.random() * 2000 + 3000); // waits for a random time between 3000ms (3s) and 5000ms (5s)
-  });
-</script>
+      window.location.href = 'index2.html';
+    }, 1000); // The timeout should be the same as the animation duration
+  }, Math.random() * 2000 + 3000);
+});
+
+    // When the user tries to reload the page, redirect them to the loading screen
+    window.onbeforeunload = function() {
+      window.location.href = 'index.html';
+    }
+// Clear the 'visited' item in sessionStorage when the loading page is loaded
+sessionStorage.removeItem('visited');
+function handleVideoError() {
+  // Create a new HTML element
+  var errorElement = document.createElement('h1');
+
+  // Set the text of the element to '404'
+  errorElement.textContent = '404: The video failed to load.';
+
+  // Add the element to the body of the document
+  document.body.appendChild(errorElement);
+
+  // Hide the loading screen
+  document.getElementById('loadingScreen').style.display = 'none';
+}
+  </script>
 </body>
-</html>
+</html> 

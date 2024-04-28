@@ -4,7 +4,18 @@
     <title>Profile Page</title>
     <link rel="stylesheet" href="css/basis.css">
 </head>
+<script>
+// Check if the user has visited the page before
+if (!sessionStorage.getItem('visited')) {
+  // If not, set the 'visited' item in sessionStorage
+  sessionStorage.setItem('visited', 'true');
+} else {
+  // If the user has visited the page before, redirect them to the loading screen
+  window.location.href = 'index.html';
+}
+</script>
 <body>
+
     <h1 class="headone">Profile Page</h1>
     <h2 class="subheadingone">Co-Owner / Co-Founder of AstralClub</h2>
     <p class="para1">I have made Minecraft Servers most notably Astralclub, achieving 25-40 People daily</p>
@@ -13,4 +24,5 @@
         as of now the server is 4 Years old, and I have no stopped development as a whole,
     </p>
 </body>
+<div id="fading-background"></div>
 </html>
